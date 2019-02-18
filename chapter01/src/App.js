@@ -56,7 +56,6 @@ export default class App extends Component {
     return (
       <div>
         <h1>hello, world---第一章</h1>
-        <Title title='第一章'/>
         <Title title='我是列表'/>
         <Lists />
         <Title title='我是传入的参数'/>
