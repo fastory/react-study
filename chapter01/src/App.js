@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class Title extends Component{
-  constructor(props){
+class Title extends Component {
+  constructor(props) {
     super(props)
   }
-  render(){
+  render() {
     return (
       <h2>{this.props.title}</h2>
     )
@@ -12,12 +12,12 @@ class Title extends Component{
 }
 
 
-class Test extends Component{
-  constructor(props){
+class Test extends Component {
+  constructor(props) {
     super(props)
-    this.state={company:'京东'}
+    this.state = { company: '京东' }
   }
-  render(){
+  render() {
     return (
       <div>我的名字是{this.props.name}公司名称是{this.state.company}</div>
     )
@@ -25,19 +25,19 @@ class Test extends Component{
 }
 
 class Lists extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       arr: [
-        {name: '北京'},
-        {name: '上海'},
-        {name: '广州'},
-        {name: '深圳'}
+        { name: '北京' },
+        { name: '上海' },
+        { name: '广州' },
+        { name: '深圳' }
       ]
     };
   }
   render() {
-    const {arr} = this.state;
+    const { arr } = this.state;
     return (
       <ul>
         {
@@ -56,10 +56,10 @@ export default class App extends Component {
     return (
       <div>
         <h1>hello, world---第一章</h1>
-        <Title title='我是列表'/>
+        <Title title='我是列表' />
         <Lists />
-        <Title title='我是传入的参数'/>
-        <Test name="fastory"/>
+        <Title title='我是传入的参数' />
+        <Test name="fastory" />
       </div>
     );
   }
