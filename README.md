@@ -2,4 +2,4 @@
 
 react系列计划,
 
-从react入手到react+typescrpt系列
+从react入手到react+typescript系列
