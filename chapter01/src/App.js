@@ -19,7 +19,7 @@ class Test extends Component {
   }
   render() {
     return (
-      <div>我的名字是{this.props.name}公司名称是{this.state.company}</div>
+      <div>我的名字通过props传过来的，叫{this.props.name}我的公司名称通过维护自身状态state的值，是{this.state.company}</div>
     )
   }
 }
