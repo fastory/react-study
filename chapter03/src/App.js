@@ -6,7 +6,8 @@ import Top from './components/Top'
 import LeftBar from './components/LeftBar'
 const { Content } = Layout;
 import RouterMap from './router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
+import './App.scss'
 
 export default class App extends Component {
   render() {
