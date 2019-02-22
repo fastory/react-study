@@ -15,12 +15,13 @@ export default class LeftBar extends Component {
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                 >
-                    <SubMenu key="sub1" title={<span><Icon type="user" />开始</span>}>
+                    <Menu.Item key="0"><Icon type="desktop" /><Link to="/charts" style={{display:'inline-block'}}>首页</Link></Menu.Item>
+                    <SubMenu key="sub1" title={<span><Icon type="pie-chart" />数据分析</span>}>
                         <Menu.Item key="1"><Link to="/charts">分析页</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to="/form">监控页</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to="/monitor">监控页</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span><Icon type="laptop" /> 列表</span>}>
-                        <Menu.Item key="3"><Link to="/detail">用户列表</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to="/lists">用户列表</Link></Menu.Item>
                         <Menu.Item key="4"><Link to="/detail">文章列表</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" title={<span><Icon type="notification" />个人页</span>}>
