@@ -13,28 +13,7 @@ import DataSet from "@antv/data-set";
 export default class Cicle extends Component {
     render() {
         const { DataView } = DataSet;
-        const data = [
-            {
-                item: "事例一",
-                count: 40
-            },
-            {
-                item: "事例二",
-                count: 21
-            },
-            {
-                item: "事例三",
-                count: 17
-            },
-            {
-                item: "事例四",
-                count: 13
-            },
-            {
-                item: "事例五",
-                count: 9
-            }
-        ];
+        const data = this.props.cicleData;
         const dv = new DataView();
         dv.source(data).transform({
             type: "percent",
