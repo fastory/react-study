@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Lists from '../../components/lists'
 
 export default class PageLists extends Component {
-    editHandle = ()=>{
-
+    deleteArticle = ()=>{
+       console.log("12312321");
     }
     state = {
         listData: [{
@@ -32,7 +32,7 @@ export default class PageLists extends Component {
 
     render() {
         return (
-            <Lists listData={this.state.listData} editHandle={this.editHandle}/>
+            <Lists listData={this.state.listData} deleteArticle={this.deleteArticle}/>
         )
     }
 }
