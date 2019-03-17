@@ -1,18 +1,15 @@
 import React, { Component } from "react";
 import { Modal,Table } from 'antd';
 
-
-
-
 export default class Lists extends Component {
-    deleteArticle=()=>{
+    deleteUser=(record,event)=>{
         Modal.confirm({
-            title: 'Confirm',
-            content: '我是确认框',
+            title: '我是确认框',
+            content: '你确定想要删除${record.name}吗',
             okText: '确认',
             cancelText: '取消',
             onOk:()=>{
-                this.props.deleteArticle()
+                this.props.deleteUser(record)
             }
           }); 
     }
@@ -33,7 +30,7 @@ export default class Lists extends Component {
             title: '操作',
             key: 'action',
             render: (text, record) => (
-                <span onClick={this.deleteArticle}>删除{record.name}</span>
+                <span onClick={this.deleteUser.bind(this,record)}>删除</span>
             ),
         }];
         const { listData } = this.props;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Analyze from '../../components/Analyze'
+import Analyze from '../../components/Analyze';
 
 
 export default class PageIndex extends Component {
