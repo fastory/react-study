@@ -4,7 +4,7 @@ import User from '../../components/Personal';
 export default class Personal extends Component {
     render() {
         return (
-                <User />
+            <User />
         )
     }
 }

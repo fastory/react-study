@@ -45,7 +45,7 @@ class UserForm extends React.Component {
             const formItemLayout = {
                 labelCol: {
                     xs: { span: 24 },
-                    sm: { span: 8 },
+                    sm: { span: 4 },
                 },
                 wrapperCol: {
                     xs: { span: 24 },
@@ -55,12 +55,12 @@ class UserForm extends React.Component {
             const tailFormItemLayout = {
                 wrapperCol: {
                     xs: {
-                        span: 30,
-                        offset: 0,
+                        span: 24,
+                        offset: 12,
                     },
                     sm: {
-                        span: 16,
-                        offset: 8,
+                        span: 24,
+                        offset: 10,
                     },
                 },
             };
@@ -86,7 +86,7 @@ class UserForm extends React.Component {
                             </span>
                         )}
                     >
-                        {getFieldDecorator('nickname', {
+                        {getFieldDecorator('name', {
                             rules: [{ required: true, message: '请输入名称', whitespace: true }],
                         })(
                             <Input />
@@ -112,7 +112,7 @@ class UserForm extends React.Component {
                         label="地址"
                     >
                         {getFieldDecorator('address', {
-                            initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+                            initialValue: ['浙江', '杭州', '西湖'],
                             rules: [{ type: 'array', required: true, message: '请选择你的地址!' }],
                         })(
                             <Cascader options={residences} />
@@ -145,7 +145,7 @@ class UserForm extends React.Component {
                     > <Input />
                     </Form.Item>
                     <Form.Item {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit">保存</Button>
+                        <Button type="primary" htmlType="submit" size={'large'}>保存</Button>
                     </Form.Item>
                 </Form>
             );

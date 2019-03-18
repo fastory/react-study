@@ -5,7 +5,7 @@ export default class Lists extends Component {
     deleteUser=(record,event)=>{
         Modal.confirm({
             title: '我是确认框',
-            content: '你确定想要删除${record.name}吗',
+            content: `你确定想要删除 ${record.name}吗`,
             okText: '确认',
             cancelText: '取消',
             onOk:()=>{

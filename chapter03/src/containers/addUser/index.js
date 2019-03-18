@@ -10,7 +10,10 @@ export default class AddUser extends Component {
     }
     render() {
         return (
-            <AddUserForm addUserAction={this.addUserAction}/>
+            <div>
+                <AddUserForm addUserAction={this.addUserAction}/>
+            </div>
+            
         )
     }
 }

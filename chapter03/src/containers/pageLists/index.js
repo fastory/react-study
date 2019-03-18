@@ -1,26 +1,52 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Lists from '../../components/lists';
-import emitter from '../../util/event'; 
+import AddBtn from '../../components/Forms/addBtn';
+import AddUserModel from '../../components/Lists/addUserModel';
+import emitter from '../../util/event';
 
 export default class PageLists extends Component {
-    deleteUser = (record)=>{
-       const listData = [...this.state.listData];
-       this.setState({
-        listData: listData.filter(item => item.key !== record.key) 
-       })
+    deleteUser = (record) => {
+        const listData = [...this.state.listData];
+        this.setState({
+            listData: listData.filter(item => item.key !== record.key)
+        })
+    }
+    addUserModel = () => {
+        this.setState({
+            visible: true
+        })
+    }
+    closeModel = () => {
+        this.setState({
+            visible: false
+        })
+    }
+    addUserAction = (values) => {
+        let listData = [...this.state.listData];
+        let obj=Object.assign(values,{
+            key:listData[listData.length-1].key+1,
+            age:Number.parseInt(values.age),
+            address:values.address.join("").toString()
+        })
+        listData.push(obj);
+        this.setState({
+            listData: listData,
+            visible: false
+        })
     }
     componentDidMount() {
         // 组件装载完成以后声明一个自定义事件
         emitter.addListener('addUser', (message) => {
-            console.log("监听事件的更新",message);
+            console.log("监听事件的更新", message);
         });
     }
     componentWillUnmount() {
-        emitter.removeListener('addUser',function(){
+        emitter.removeListener('addUser', function () {
             console.log("移除绑定的on事件")
         });
     }
     state = {
+        visible: false,
         listData: [{
             key: 1,
             name: '刘亦菲',
@@ -51,7 +77,11 @@ export default class PageLists extends Component {
 
     render() {
         return (
-            <Lists listData={this.state.listData} deleteUser={this.deleteUser}/>
+            <div>
+                <AddBtn addUser={this.addUserModel} />
+                <AddUserModel visible={this.state.visible} closeModel={this.closeModel} addUserAction={this.addUserAction} />
+                <Lists listData={this.state.listData} deleteUser={this.deleteUser} />
+            </div>
         )
     }
 }
