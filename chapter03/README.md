@@ -1,6 +1,6 @@
 #### 这是第三章
 
-webpack4+react+scss+antd+react-router+react-redux
+webpack4+react+scss+antd+react-router+event
 
 
 #### 第三章新增
