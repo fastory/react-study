@@ -5,11 +5,11 @@ export default class Personal extends Component {
 
   render() {
     return (
-      <div style={{marginTop:'20px'}}>
+      <div style={{ marginTop: '20px' }}>
         <div>
           <Avatar size={64} icon="user" />
         </div>
-        <div style={{marginTop:'20px'}}>
+        <div style={{ marginTop: '20px' }}>
           <Row gutter={24}>
             <Col span={10}>
               <Card

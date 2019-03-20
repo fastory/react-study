@@ -5,7 +5,7 @@ import CountDown from '../../components/Personal/CountDown';
 export default class Personal extends Component {
     render() {
         return (
-            <div style={{marginTop:'20px'}}>
+            <div style={{ marginTop: '20px' }}>
                 <CountDown />
                 <User />
             </div>
