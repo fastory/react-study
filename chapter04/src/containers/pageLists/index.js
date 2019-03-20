@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Lists from '../../components/lists';
 import AddBtn from '../../components/Forms/addBtn';
 import AddUserModel from '../../components/Lists/addUserModel';
-import emitter from '../../util/event';
 
 export default class PageLists extends Component {
     deleteUser = (record) => {
@@ -33,17 +32,6 @@ export default class PageLists extends Component {
             listData: listData,
             visible: false
         })
-    }
-    componentDidMount() {
-        // 组件装载完成以后声明一个自定义事件
-        emitter.addListener('addUser', (message) => {
-            console.log("监听事件的更新", message);
-        });
-    }
-    componentWillUnmount() {
-        emitter.removeListener('addUser', function () {
-            console.log("移除绑定的on事件")
-        });
     }
     state = {
         visible: false,
