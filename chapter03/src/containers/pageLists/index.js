@@ -23,10 +23,10 @@ export default class PageLists extends Component {
     }
     addUserAction = (values) => {
         let listData = [...this.state.listData];
-        let obj=Object.assign(values,{
-            key:listData[listData.length-1].key+1,
-            age:Number.parseInt(values.age),
-            address:values.address.join("").toString()
+        let obj = Object.assign(values, {
+            key: listData[listData.length - 1].key + 1,
+            age: Number.parseInt(values.age),
+            address: values.address.join("").toString()
         })
         listData.push(obj);
         this.setState({
