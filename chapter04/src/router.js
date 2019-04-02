@@ -15,7 +15,7 @@ const RouterMap = () => {
       <Switch>
         <Route exact path="/" component={Detail} />
         <Route path="/form" component={WrappedRegistrationForm} />
-        <Route path="/detail" component={pageTodo} />
+        <Route path="/todo" component={pageTodo} />
         <Route path="/lists" component={PageLists} />
         <Route path="/personal" component={Personal} />
         <Route path="/charts" component={pageChart} />

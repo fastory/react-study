@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { toggleTodo } from '../../actions'
 import TodoList from '../../components/Todo/TodoList'
@@ -16,6 +17,15 @@ const getVisibleTodos = (todos, filter) => {
   }
 }
 
+class VisibleList extends Component {
+  render () {
+    const todos = this.props.todos;
+    return (
+      // <div>水电费</div>
+    <TodoList todos={todos} />
+    );
+  }
+}
 const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 })
@@ -27,4 +37,6 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList)
+)(VisibleList)
+
+

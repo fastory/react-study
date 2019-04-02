@@ -1,27 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Todo from './Todo'
-import { List, Typography } from "antd";
+import React, { Component } from "react";
+import { List } from "antd";
 
-const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => toggleTodo(todo.id)}
+export default class TodoList extends Component {
+  render () {
+    const data = this.props.todos;
+    return (
+      <List
+        bordered
+        dataSource={data}
+        renderItem={item => (<List.Item> {item.text}</List.Item>)}
       />
-    )}
-  </ul>
-)
-
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  toggleTodo: PropTypes.func.isRequired
+    );
+  }
 }
-
-export default TodoList

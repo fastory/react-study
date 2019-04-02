@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Form, Input, Tooltip, Icon, Button } from "antd";
 
  class Todo extends Component {
-   handleSubmit = e => {
+   handleSubmit2 = e => {
      e.preventDefault();
      this.props.form.validateFieldsAndScroll((err, values) => {
        if (!err) {
          //检验正确提交action
          this.props.handleSubmit(values);
+         this.props.form.resetFields();
        }
      });
    };
@@ -24,7 +25,7 @@ import { Form, Input, Tooltip, Icon, Button } from "antd";
        }
      };
      return (
-       <Form onSubmit={this.handleSubmit}>
+       <Form onSubmit={this.handleSubmit2}>
          <Form.Item
            {...formItemLayout}
            label={

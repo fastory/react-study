@@ -26,6 +26,7 @@ export default class LeftBar extends Component {
                     </SubMenu>
                     <SubMenu key="sub3" title={<span><Icon type="notification" />个人页</span>}>
                         <Menu.Item key="5"><Link to="/personal">个人中心</Link></Menu.Item>
+                        <Menu.Item key="6"><Link to="/todo">代办事项</Link></Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>
