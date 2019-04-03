@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { Button } from "antd";
-import { VisibilityFilters } from '../actions'
 
 export default class FilterBtn extends Component {
+  
   render() {
+    const { arr } = this.props;
     return (
-      <div>
-         <button type="primary">显示已完成</button>
-         <button type="primary">显示全部</button>
-         <button type="primary">显示未完成</button>
+      <div style={{ marginTop: "20px" }}>
+        {arr.map((obj) => {
+          return (
+            <Button
+              key={obj.filter}
+              onClick={() => this.props.filterHandle(obj.filter)}
+            >
+              {obj.text}
+            </Button>
+          );
+        })}
       </div>
     );
   }
