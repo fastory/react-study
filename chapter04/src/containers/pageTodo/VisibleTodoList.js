@@ -18,11 +18,15 @@ const getVisibleTodos = (todos, filter) => {
 }
 
 class VisibleList extends Component {
-  render () {
+  complete = id =>{
+    console.log(id)
+    this.props.completeId(id);
+  }
+  render() {
     const todos = this.props.todos;
     return (
       // <div>水电费</div>
-    <TodoList todos={todos} />
+      <TodoList todos={todos} complete={this.complete} />
     );
   }
 }
@@ -31,8 +35,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
-})
+  completeId: id => {
+    dispatch(toggleTodo(id));
+  }
+});
 
 export default connect(
   mapStateToProps,

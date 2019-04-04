@@ -7,8 +7,21 @@ export default class TodoList extends Component {
     return (
       <List
         bordered
+        itemLayout="horizontal"
         dataSource={data}
-        renderItem={item => (<List.Item> {item.text}</List.Item>)}
+        renderItem={item => (
+          <List.Item
+            actions={[
+              <a
+                onClick={() => this.props.complete(item.id)}
+              >
+                完成
+              </a>
+            ]}
+          >
+            <div style={{flex:1}}>{item.text}</div>
+          </List.Item>
+        )}
       />
     );
   }
