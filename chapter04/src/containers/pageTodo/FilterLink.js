@@ -11,8 +11,8 @@ class FilterLink extends Component {
   render() {
     const arr = [
       { text: "显示全部", filter: VisibilityFilters.SHOW_ALL },
-      { text: "显示已完成", filter: VisibilityFilters.SHOW_ACTIVE },
-      { text: "显示未完成", filter: VisibilityFilters.SHOW_COMPLETED }
+      { text: "显示已完成", filter: VisibilityFilters.SHOW_COMPLETED },
+      { text: "显示未完成", filter: VisibilityFilters.SHOW_ACTIVE }
     ];
     return (
       <div>

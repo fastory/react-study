@@ -45,7 +45,7 @@ import { Form, Input, Tooltip, Icon, Button } from "antd";
                  whitespace: true
                }
              ]
-           })(<Input />)}
+           })(<Input autocomplete="off"/>)}
          </Form.Item>
          <Button type="primary" htmlType="submit" size={"large"}>
            保存
