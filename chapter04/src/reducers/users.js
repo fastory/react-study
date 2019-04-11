@@ -4,15 +4,16 @@ const users = (state = [], action) => {
             return [
                 ...state,
                 {
-                    id: action.id,
-                    key: action.info.id,
+                    key: state.length>0?state[state.length - 1].key+1:1,
                     name: action.info.name,
                     age: action.info.age,
                     address: action.info.address,
                 }
             ]
-        case 'DEL_USER':
-            return state.splice(state.findIndex(item => item.info.id === action.info.key), 1)
+        case 'DELETE_USER':
+            return state.filter(item => item.key!=action.key)
+        case 'INIT_USER':
+            return action.userList
         default:
             return state
     }

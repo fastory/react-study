@@ -1,12 +1,15 @@
-let nextTodoId = 0;
 export const addUser = info => ({
     type: "ADD_USER",
-    id: nextTodoId++,
     info
 });
 
-export const delUser = id => ({
+export const delUser = key => ({
     type: "DELETE_USER",
-    id
+    key
+});
+
+export const initUser = userList => ({
+    type: "INIT_USER",
+    userList
 });
 

@@ -3,39 +3,38 @@ import Lists from '../../components/lists';
 import AddBtn from '../../components/Forms/addBtn';
 import AddUserModel from '../../components/Lists/addUserModel';
 import { connect } from 'react-redux'
-import { addUser , delUser } from '../../actions/user'
+import { addUser , delUser , initUser} from '../../actions/user'
 
  class PageLists extends Component {
 
     componentDidMount =()=>{
-        this.setState({
-            listData: [{
-                key: 1,
-                name: '刘亦菲',
-                age: 28,
-                email: '123@123.com',
-                address: '西湖区湖底公园1号'
-            }, {
-                key: 2,
-                name: '迪丽热巴',
-                age: 26,
-                email: '122@163.com',
-                address: '西湖区湖底公园1号'
-            }, {
-                key: 3,
-                name: '范冰冰',
-                age: 25,
-                email: '333@qq.com',
-                address: '西湖区湖底公园1号'
-            }, {
-                key: 4,
-                name: '佟丽娅',
-                age: 30,
-                email: '4545@163.com',
-                address: '西湖区湖底公园1号'
-            }
-            ]
-        })
+        const listData = [{
+            key: 1,
+            name: '刘亦菲',
+            age: 28,
+            email: '123@123.com',
+            address: '西湖区湖底公园1号'
+        }, {
+            key: 2,
+            name: '迪丽热巴',
+            age: 26,
+            email: '122@163.com',
+            address: '西湖区湖底公园1号'
+        }, {
+            key: 3,
+            name: '范冰冰',
+            age: 25,
+            email: '333@qq.com',
+            address: '西湖区湖底公园1号'
+        }, {
+            key: 4,
+            name: '佟丽娅',
+            age: 30,
+            email: '4545@163.com',
+            address: '西湖区湖底公园1号'
+        }
+        ]
+        this.props.initUser(listData);
     }
     deleteUser = (record) => {
         this.props.delUser(record.key);
@@ -70,26 +69,30 @@ import { addUser , delUser } from '../../actions/user'
         visible: false
     }
     render() {
+        const listData = this.props.users;
         return (
             <div>
                 <AddBtn addUser={this.addUserModel} />
                 <AddUserModel visible={this.state.visible} closeModel={this.closeModel} addUserAction={this.addUserAction} />
-                <Lists listData={this.props.listData} deleteUser={this.deleteUser} />
+                <Lists listData={listData} deleteUser={this.deleteUser} />
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    listData: state.listData
+    users: state.users
 })
 
 const mapDispatchToProps = dispatch => ({
     addUser: record => {
         dispatch(addUser(record));
     },
-    delUser: id => {
-        dispatch(delUser(id));
+    delUser: key => {
+        dispatch(delUser(key));
+    },
+    initUser: userList => {
+        dispatch(initUser(userList));
     }
 });
 
