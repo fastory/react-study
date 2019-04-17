@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 import AddUserForm from "../../components/Forms";
-import { message } from "antd";
+import { connect } from 'react-redux'
+import { addUser} from '../../actions/user'
+import { message } from 'antd';
 
-export default class AddUser extends Component {
+class AddUser extends Component {
+  addUserAction = (values) => {
+    const userLists = this.props.users ? this.props.users : [];
+    let lastKey = 0;
+    if (userLists.length != 0) {
+      lastKey = userLists[userLists.length - 1].key;
+    }
+    let obj = Object.assign(values, {
+      key: lastKey + 1,
+      age: Number.parseInt(values.age),
+      address: values.address.join("").toString()
+    })
+    this.props.addUser(obj);
+    message.success('提交成功');
+  }
   render() {
     return (
       <div>
@@ -11,3 +27,17 @@ export default class AddUser extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  users: state.users
+})
+
+const mapDispatchToProps = dispatch => ({
+  addUser: record => {
+    dispatch(addUser(record));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddUser)

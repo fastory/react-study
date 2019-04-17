@@ -34,7 +34,9 @@ import { addUser , delUser , initUser} from '../../actions/user'
             address: '西湖区湖底公园1号'
         }
         ]
-        this.props.initUser(listData);
+        if(this.props.users.length==0){
+            this.props.initUser(listData);
+        }
     }
     deleteUser = (record) => {
         this.props.delUser(record.key);
@@ -50,10 +52,10 @@ import { addUser , delUser , initUser} from '../../actions/user'
         })
     }
     addUserAction = (values) => {
-        const listData = this.props.listData ? this.props.listData: [];
+        const userLists = this.props.users ? this.props.users: [];
         let lastKey=0;
-        if (listData.length!=0){
-            lastKey = listData[listData.length - 1].key;   
+        if (userLists.length!=0){
+            lastKey = userLists[userLists.length - 1].key;   
         }
         let obj = Object.assign(values, {
             key: lastKey + 1,
