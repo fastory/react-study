@@ -1,15 +1,31 @@
-import { takeEvery } from 'redux-saga/effects'
+import { put, call, select, take } from "redux-saga/effects";
 
-import { reducers } from '../reducers';
-import { put } from 'redux-saga/effects'
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-// Our worker Saga: 将异步执行 increment 任务
-export function* incrementAsync () {
-    yield delay(1000);
-    yield put({ type: 'INCREMENT' });
+export function* addUser() {
+  try {
+    return yield call(delay, 500);
+  } catch (err) {
+    yield put({ type: 'ERROR'});
+  }
 }
 
-// Our watcher Saga: 在每个 INCREMENT_ASYNC action 调用后，派生一个新的 incrementAsync 任务
-export default function* watchIncrementAsync () {
-    yield* takeEvery('INCREMENT_ASYNC', incrementAsync);
+export function* addUserFlow() {
+    console.log("addUserFlow");
+  while (true) {
+    let request = yield take('ADD_USER');
+    let response = yield call(addUser, request.index);
+    let tempList = yield select(state => state.users);
+    let list = [];
+    list = list.concat(tempList);
+    list.splice(request.index, 1);
+    yield put({
+      type: 'ADD_USER',
+      data: list
+    });
+  }
+}
+
+export default function* rootSaga() {
+  yield fork(addUserFlow);
 }

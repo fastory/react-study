@@ -7,13 +7,16 @@ import { createSagaMiddleware  } from "redux-saga";
 import rootReducer from "./reducers";
 import sagaConfig from "./sagas";
 
-const sagaMiddleware = createSagaMiddleware();
 
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
 const store = createStore(
-  sagaConfig.reducers,
+  rootReducer,
   applyMiddleware(sagaMiddleware)
-  );
-sagaMiddleware.run(sagaConfig.watcher);
+)
+
+// then run the saga
+sagaMiddleware.run(sagaConfig)
 
 // 创建一个组件实列，将组件挂载到元素上
 ReactDOM.render(
