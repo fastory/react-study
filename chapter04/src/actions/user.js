@@ -12,4 +12,8 @@ export const initUser = userList => ({
     type: "INIT_USER",
     userList
 });
+export const updateUser = userList => ({
+    type: "UPDATE_USER",
+    userList
+});
 

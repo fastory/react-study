@@ -14,7 +14,8 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga
 
 #####  函数组件
 
-#####  
+#####  react-saga
+> - 使用需要ES7的语法，在babel编译的.babelrc文件中增加"transform-runtime",
 
 ##### 
 

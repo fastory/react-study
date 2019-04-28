@@ -1,4 +1,4 @@
-import { put, call, select, take } from "redux-saga/effects";
+import { put, call, select, take, takeEvery} from "redux-saga/effects";
 
 export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -19,13 +19,22 @@ export function* addUserFlow() {
     let list = [];
     list = list.concat(tempList);
     list.splice(request.index, 1);
-    yield put({
-      type: 'ADD_USER',
-      data: list
-    });
+    // yield put({
+    //   type: 'UPDATE_USER',
+    //   data: list
+    // });
   }
 }
 
-export default function* rootSaga() {
-  yield fork(addUserFlow);
+export function* watchAndLog () {
+  yield takeEvery('*', function* logger (action) {
+    const state = yield select()
+    console.log('action', action)
+    console.log('state after', state)
+  })
 }
+
+// export default function* rootSaga() {
+//   yield fork(addUserFlow);
+// }
+

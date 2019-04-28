@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import APP from './App';
 import { createStore ,applyMiddleware} from "redux";
 import { Provider } from "react-redux";
-import { createSagaMiddleware  } from "redux-saga";
+import createSagaMiddleware  from "redux-saga";
 import rootReducer from "./reducers";
-import sagaConfig from "./sagas";
+import rootSaga from "./rootSaga";
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -16,7 +16,8 @@ const store = createStore(
 )
 
 // then run the saga
-sagaMiddleware.run(sagaConfig)
+sagaMiddleware.run(rootSaga)
+
 
 // 创建一个组件实列，将组件挂载到元素上
 ReactDOM.render(
