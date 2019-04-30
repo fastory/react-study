@@ -11,18 +11,17 @@ export function* addUser() {
 }
 
 export function* addUserFlow() {
-    console.log("addUserFlow");
   while (true) {
     let request = yield take('ADD_USER');
     let response = yield call(addUser, request.index);
     let tempList = yield select(state => state.users);
     let list = [];
     list = list.concat(tempList);
-    list.splice(request.index, 1);
-    // yield put({
-    //   type: 'UPDATE_USER',
-    //   data: list
-    // });
+    console.log("addUserFlow",list);
+    yield put({
+      type: 'UPDATE_USER',
+      data: list
+    });
   }
 }
 
@@ -33,8 +32,3 @@ export function* watchAndLog () {
     console.log('state after', state)
   })
 }
-
-// export default function* rootSaga() {
-//   yield fork(addUserFlow);
-// }
-

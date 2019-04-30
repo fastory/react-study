@@ -14,6 +14,8 @@ const users = (state = [], action) => {
             return state.filter(item => item.key!=action.key)
         case 'INIT_USER':
             return action.userList
+        case 'UPDATE_USER':
+            return [...action.data]
         default:
             return state
     }
