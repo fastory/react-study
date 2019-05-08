@@ -10,14 +10,59 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga
 ##### 知识点
 
 > - react-redux   [API文档](http://cn.redux.js.org/docs/basics/Store.html)
-> - react-saga  介绍:https://www.jianshu.com/p/cb2775dbe2f3
+> - react-saga  [介绍以及流程](https://www.jianshu.com/p/cb2775dbe2f3) [API文档](https://redux-saga-in-chinese.js.org/docs/introduction/BeginnerTutorial.html)
 
 #####  函数组件
 
+##### react-redux 
+
+```
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import rootReducer from "./reducers";
+
+ const store = createStore(rootReducer);
+
+    // 创建一个组件实列，将组件挂载到元素上	// 创建一个组件实列，将组件挂载到元素上
+    ReactDOM.render(<APP />, document.getElementById('app')); 	
+    ReactDOM.render(  <Provider store={store}>  
+        <APP />
+    </Provider>,
+    document.getElementById("app")
+    );
+```
+
 #####  react-saga
 > - 使用需要ES7的语法，在babel编译的.babelrc文件中增加"transform-runtime",
+> - 
+```
+import { createStore ,applyMiddleware} from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware  from "redux-saga";
+import rootReducer from "./reducers";
+import rootSaga from "./rootSaga";
 
-##### 
+
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware)
+)
+
+// then run the saga
+sagaMiddleware.run(rootSaga)
+
+
+// 创建一个组件实列，将组件挂载到元素上
+ReactDOM.render(
+  <Provider store={store}>
+    <APP />
+  </Provider>,
+  document.getElementById("app")
+);
+```
+#####
 
 
 
