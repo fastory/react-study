@@ -36,8 +36,9 @@ import rootReducer from "./reducers";
 
 #####  react-saga
 > - 使用需要ES7的语法，在babel编译的.babelrc文件中增加"transform-runtime",
-> - 
- ```
+> - 流程
+
+```
 graph LR
 view-->container
 container-->dispatch(action)
