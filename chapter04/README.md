@@ -10,7 +10,7 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga
 ##### 知识点
 
 > - react-redux   [API文档](http://cn.redux.js.org/docs/basics/Store.html)
-> - react-saga  [介绍以及流程](https://www.jianshu.com/p/cb2775dbe2f3) [API文档](https://redux-saga-in-chinese.js.org/docs/introduction/BeginnerTutorial.html)
+> - react-saga    [API文档](https://redux-saga-in-chinese.js.org/docs/introduction/BeginnerTutorial.html)
 
 #####  函数组件
 
@@ -32,9 +32,21 @@ import rootReducer from "./reducers";
     );
 ```
 
+![redux流程](https://github.com/fastory/react-study/blob/master/chapter04/img/redux.png)
+
 #####  react-saga
 > - 使用需要ES7的语法，在babel编译的.babelrc文件中增加"transform-runtime",
 > - 
+ ```
+graph LR
+view-->container
+container-->dispatch(action)
+dispatch(action)-->reducers
+reducers-->sagas
+sagas-->使用put可发起新的action
+使用put可发起新的action-->新的reducers
+```
+
 ```
 import { createStore ,applyMiddleware} from "redux";
 import { Provider } from "react-redux";
