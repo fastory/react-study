@@ -38,15 +38,7 @@ import rootReducer from "./reducers";
 > - 使用需要ES7的语法，在babel编译的.babelrc文件中增加"transform-runtime",
 > - 流程
 
-```
-graph LR
-view-->container
-container-->dispatch(action)
-dispatch(action)-->reducers
-reducers-->sagas
-sagas-->使用put可发起新的action
-使用put可发起新的action-->新的reducers
-```
+![saga流程](https://github.com/fastory/react-study/blob/master/chapter04/img/saga.png)
 
 ```
 import { createStore ,applyMiddleware} from "redux";
