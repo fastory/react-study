@@ -11,7 +11,7 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga
 
 > - react-redux   [API文档](http://cn.redux.js.org/docs/basics/Store.html)
 > - react-saga    [API文档](https://redux-saga-in-chinese.js.org/docs/introduction/BeginnerTutorial.html)
-> - Generator(生成器)    [API文档](http://www.cnblogs.com/diligenceday/p/5488037.html#_label6)
+> - [Generator(生成器)](http://www.cnblogs.com/diligenceday/p/5488037.html#_label6)
 > - [mapStateToProps/mapDispatchToProps使用](https://blog.csdn.net/genius_yym/article/details/64130120)
 > - [mapStateToProps/mapDispatchToProps理解](https://www.cnblogs.com/hanmeimei/p/8820277.html)
 
@@ -93,7 +93,7 @@ console.log(it.next());   // {value: 3, done: false}
 console.log(it.next()); // {value: 4, done: true}
 console.log(it.next()); // {value: undefined, done: true}
 ```
->  [Generator和sync/await](https://www.zhihu.com/question/290681846)
+>  [Generator和async/await](https://www.zhihu.com/question/290681846)
 
 
 
