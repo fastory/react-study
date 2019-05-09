@@ -1,4 +1,5 @@
 const users = (state = [], action) => {
+    console.log("执行action中的" + action.type)
     switch (action.type) {
         case 'ADD_USER':
             return [
