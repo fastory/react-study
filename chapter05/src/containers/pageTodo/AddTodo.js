@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-import { addTodo } from '../../actions'
+import { AddTodo } from "../../actions";
 import Todo from "../../components/Todo";
 
-class AddTodo extends Component {
+class PageTodo extends Component {
   handleSubmit = values => {
-    this.props.dispatch(addTodo(values.name));
+    this.props.dispatch(AddTodo(values.name));
     // input.value = ''
   };
   render() {
@@ -17,4 +17,4 @@ class AddTodo extends Component {
   }
 }
 
-export default connect()(AddTodo)
+export default connect()(PageTodo);
