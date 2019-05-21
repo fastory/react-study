@@ -1,13 +1,18 @@
-import React, { Component } from "react";
+import * as React from 'react'
 import { Button } from "antd";
 
-export default class FilterBtn extends Component {
+
+interface FilterProps {
+  btns: Array<object>;
+  filterHandle?:(filter:string)=>void;
+}
+export default class FilterBtn extends React.Component<FilterProps,any> {
   
   render() {
-    const { arr } = this.props;
+    const { btns } = this.props;
     return (
       <div style={{ marginTop: "20px" }}>
-        {arr.map((obj) => {
+        {btns.map((obj:any) => {
           return (
             <Button
               key={obj.filter}

@@ -1,15 +1,20 @@
-import React, { Component } from "react";
+import * as React from 'react'
 import { List } from "antd";
 
-export default class TodoList extends Component {
+interface TodoProps{
+  todos: Array<object>;
+  complete?: (id: number) => void;
+}
+
+export default class TodoList extends React.Component<TodoProps,any> {
   render () {
-    const data = this.props.todos;
+    const data= this.props.todos;
     return (
       <List
         bordered
         itemLayout="horizontal"
         dataSource={data}
-        renderItem={item => (
+        renderItem={(item: any) => (
           <List.Item
             actions={[
               <a

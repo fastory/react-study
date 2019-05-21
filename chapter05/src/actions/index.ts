@@ -1,4 +1,5 @@
 import * as constants from "../constants";
+import { type } from "os";
 
 let nextTodoId = 0;
 
@@ -22,7 +23,6 @@ export const AddTodo = (text: String): AddTodo => {
     text
   };
 };
-
 export const ToggleTodo = (id: Number) => ({
   type: "TOGGLE_TODO",
   id

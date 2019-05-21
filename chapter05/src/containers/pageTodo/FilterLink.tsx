@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import * as  React from "react";
 import { connect } from "react-redux";
-import { setVisibilityFilter, VisibilityFilters } from "../../actions";
+import { setVisibilityFilter, VisibilityFilter, VisibilityFilters, filterAction} from "../../actions";
 import FilterBtn from "../../components/Todo/FilterBtn";
 
-class FilterLink extends Component {
-  filterHandle = filter => {
+interface FilterProps{
+  btns:Array<object>;
+  changeFilter?: (filter: VisibilityFilters)=> void;
+}
+class FilterLink extends React.Component<FilterProps> {
+  filterHandle = (filter: VisibilityFilters) => {
     this.props.changeFilter(filter);
-    // input.value = ''
   };
   render() {
     const arr = [
@@ -16,18 +19,18 @@ class FilterLink extends Component {
     ];
     return (
       <div>
-        <FilterBtn arr={arr} filterHandle={this.filterHandle} />
+        <FilterBtn btns={arr} filterHandle={this.filterHandle} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state:any, ownProps:any) => ({
   active: ownProps.filter === state.visibilityFilter
 });
 
-const mapDispatchToProps = dispatch => ({
-  changeFilter: filter => {
+const mapDispatchToProps = (dispatch: any) => ({
+  changeFilter: (filter: VisibilityFilters) => {
     dispatch(setVisibilityFilter(filter));
   }
 });

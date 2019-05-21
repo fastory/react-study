@@ -1,18 +1,23 @@
-import React, { Component } from "react";
+import * as React from 'react';
 import { Form, Input, Tooltip, Icon, Button } from "antd";
+import { FormComponentProps } from 'antd/lib/form'
 
- class Todo extends Component {
-   handleSubmit2 = e => {
+interface todoProps extends FormComponentProps{
+  handleSubmit?:(values: string) => void;
+}
+
+class Todo extends React.Component<todoProps>{
+   public handleSubmit2 = (e:any) => {
      e.preventDefault();
      this.props.form.validateFieldsAndScroll((err, values) => {
        if (!err) {
          //检验正确提交action
-         this.props.handleSubmit(values);
+         this.props.handleSubmit(values.name);
          this.props.form.resetFields();
        }
      });
    };
-   render() {
+  public render() {
      const { getFieldDecorator } = this.props.form;
      const formItemLayout = {
        labelCol: {
@@ -54,4 +59,5 @@ import { Form, Input, Tooltip, Icon, Button } from "antd";
      );
    }
  }
-export default Form.create()(Todo)
+
+export const TodoCom: any = Form.create()(Todo);

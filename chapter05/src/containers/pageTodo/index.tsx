@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import AddTodo from './AddTodo'
+import * as React from "react";
+import { AddTodoCom} from "./AddTodo";
 import VisibleTodoList from "./VisibleTodoList";
 import FilterLink from "./FilterLink";
 
-
-export default class pageTodo  extends Component {
+export default class PageTodo extends React.Component<any,any> {
   render() {
     return (
       <div>
-        <AddTodo />
+        <AddTodoCom />
         <FilterLink />
         <VisibleTodoList />
       </div>
