@@ -1,18 +1,17 @@
 import * as constants from "../constants";
-import { type } from "os";
 
 let nextTodoId = 0;
 
 interface AddTodo {
   type: constants.ADD_TODO;
-  id: Number;
+  id: number;
   text: String;
-  complete:Boolean
+  complete:boolean
 }
 
 interface ToggleTodo {
   type: constants.TOGGLE_TODO;
-  id: Number;
+  id: number;
 }
 
 export const AddTodo = (text: String): AddTodo => {
@@ -23,10 +22,10 @@ export const AddTodo = (text: String): AddTodo => {
     text
   };
 };
-export const ToggleTodo = (id: Number) => ({
-  type: "TOGGLE_TODO",
-  id
-});
+export const ToggleTodo = (id: number) => ({
+         type: "TOGGLE_TODO",
+         id
+       });
 
 export enum VisibilityFilters {
   SHOW_ALL = "SHOW_ALL",

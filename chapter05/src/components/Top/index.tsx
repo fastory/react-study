@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react'
 import { Layout ,Menu} from 'antd';
 const { Header } = Layout;
 
-export default class Top extends Component {
+export default class Top extends React.Component {
     render() {
         return (
             <Header className="header">

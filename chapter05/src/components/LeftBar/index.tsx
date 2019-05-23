@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 import { Link } from 'react-router-dom';
 
 
-export default class LeftBar extends Component {
+export default class LeftBar extends React.Component {
     render() {
         return (
             <Sider width={200} style={{minHeight: '100vh', background: '#fff' }}>

@@ -3,13 +3,14 @@ import { Form, Input, Tooltip, Icon, Button } from "antd";
 import { FormComponentProps } from 'antd/lib/form'
 
 interface todoProps extends FormComponentProps{
-  handleSubmit?:(values: string) => void;
+  name?:'string'
+  handleSubmit?:(values: string) => void
 }
 
 class Todo extends React.Component<todoProps>{
    public handleSubmit2 = (e:any) => {
      e.preventDefault();
-     this.props.form.validateFieldsAndScroll((err, values) => {
+     this.props.form.validateFieldsAndScroll((err: any, values: { name: any; }) => {
        if (!err) {
          //检验正确提交action
          this.props.handleSubmit(values.name);
@@ -52,9 +53,7 @@ class Todo extends React.Component<todoProps>{
              ]
            })(<Input autoComplete="off"/>)}
          </Form.Item>
-         <Button type="primary" htmlType="submit" size={"large"}>
-           保存
-         </Button>
+         <Button type="primary" size={"large"} htmlType='submit'>保存</Button>
        </Form>
      );
    }

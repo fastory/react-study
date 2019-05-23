@@ -12,9 +12,16 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga+typescript
 > - [typescript](https://www.tslang.cn/docs/home.html) 
 
 
+##### 安装包
+> - typescript
+> - ts-loader
+> - @types/react
+> - @types/react-dom
+> - @types/react-router-dom
 
-##### 使用form解决报错
+##### 相关错误
 
+> - 使用dom和react-router相关的要是用tsx
 > - this.props.form报错
 '''
 import { FormComponentProps } from 'antd/lib/form'
@@ -26,4 +33,6 @@ interface todoProps extends FormComponentProps
 
 > 在子组件对外暴露的名字上使用变量加上:any就可以了
 
+> - Cannot find global type 'IterableIterator': https://codeday.me/bug/20180824/228460.html
 
+> - Button中必须要添加href属性，看了看是antd中的button.d.ts中规定了，[github已修复fixbug](https://github.com/ant-design/ant-design/pull/15736),更新到最新版本就可以了。

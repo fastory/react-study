@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-import {
-  Layout
-} from 'antd';
+import * as React  from 'react';
+import { Layout } from 'antd';
 import Top from './components/Top'
 import LeftBar from './components/LeftBar'
 const { Content } = Layout;
 import RouterMap from './router';
-import { HashRouter as Router } from 'react-router-dom';
-import './App.scss'
+import { HashRouter} from 'react-router-dom';
+import './App.css'
 
-export default class App extends Component {
+export default class App extends React.Component{
   render() {
     return (
-      <Router>
+      <HashRouter>
         <Layout>
           <Top></Top>
           <Layout>
@@ -27,7 +25,7 @@ export default class App extends Component {
             </Layout>
           </Layout>
         </Layout>
-      </Router>
+      </HashRouter>
     );
   }
 }
