@@ -16,13 +16,25 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader" },
+      { test: /\.(tsx|ts)?$/, loader: "ts-loader" },
       {
-        test: /\.js$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        // use: [
+        //   { loader: "babel-loader"}
+        // ],
+        use:[
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ['react', 'es2015'],
+              plugins: [
+                ["import", { "libaryName": "antd", "style": "css" }]
+              ]
+            }
+          }
+        ]
+        
       },
       {
         test: /\.scss$/,

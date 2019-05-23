@@ -8,15 +8,15 @@ import rootReducer from "./reducers";
 import rootSaga from "./rootSaga";
 
 
-// const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
 const store = createStore(
   rootReducer,
-  // applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware)
 )
 
 // then run the saga
-// sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga)
 
 
 // 创建一个组件实列，将组件挂载到元素上
