@@ -14,7 +14,6 @@ export function* addUser() {
 export function* addUserFlow() {
   while (true) {
     let request = yield take('ADD_USER');   // 阻塞: 将等待 action
-    // let response = yield call(addUser, request.index);   // 阻塞: 将等待 addUser(如果 addUser返回一个 Promise 的话)
     let tempList = yield select(state => state.users);
     let list: number[] = [];
     list = list.concat(tempList);

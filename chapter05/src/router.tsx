@@ -7,6 +7,7 @@ const RouterMap = () => {
     return (
       <Switch>
         <Route exact={true} path="/" component={pageTodo} />
+        <Route  path="/todo" component={pageTodo} />
       </Switch>
     )
 }
