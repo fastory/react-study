@@ -32,7 +32,7 @@ export enum VisibilityFilters {
   SHOW_COMPLETED = "SHOW_COMPLETED",
   SHOW_ACTIVE = "SHOW_ACTIVE",
 };
-export type VisibilityFilter = typeof VisibilityFilters.SHOW_ALL | VisibilityFilters.SHOW_ACTIVE |VisibilityFilters.SHOW_COMPLETED;
+export type VisibilityFilter = typeof  VisibilityFilters.SHOW_ALL | VisibilityFilters.SHOW_ACTIVE |VisibilityFilters.SHOW_COMPLETED;
 
 interface setVisibilityFilter {
   type: constants.SET_VISIBILITY_FILTER;

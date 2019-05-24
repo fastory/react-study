@@ -19,9 +19,24 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga+typescript
 > - @types/react-dom
 > - @types/react-router-dom
 
+##### 知识点
+
+
+```
+export const ADD_TODO = 'ADD_TODO';     
+export type ADD_TODO = typeof ADD_TODO;
+export const TOGGLE_TODO = 'TOGGLE_TODO';
+export type TOGGLE_TODO = typeof TOGGLE_TODO;
+
+export type TODO_TYPE = ADD_TODO | TOGGLE_TODO;
+```
+> - type:类型别名
+> - typeof：类型保护  
+> - interface:接口
+
 ##### 相关错误
 
-> - 使用dom和react-router相关的要是用tsx
+> - 使用dom和react-router相关的要使用tsx
 > - this.props.form报错
 '''
 import { FormComponentProps } from 'antd/lib/form'
@@ -35,4 +50,4 @@ interface todoProps extends FormComponentProps
 
 > - Cannot find global type 'IterableIterator': https://codeday.me/bug/20180824/228460.html
 
-> - Button中必须要添加href属性，看了看是antd中的button.d.ts中规定了，[github已修复fixbug](https://github.com/ant-design/ant-design/pull/15736),更新到最新版本就可以了。
+> - Button中必须要添加href属性，看了看是antd中的button.d.ts中规定的，[github已修复fixbug](https://github.com/ant-design/ant-design/pull/15736),更新到最新版本就可以了。

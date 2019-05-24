@@ -1,4 +1,4 @@
-export const ADD_TODO = 'ADD_TODO';     //为什么在const 变量以后，还要对这个变量进行类型保护，在是字符串的情况下，这个值是不可以被改变的
+export const ADD_TODO = 'ADD_TODO';     //为什么在const 变量以后
 
 export type ADD_TODO = typeof ADD_TODO;  //类型守卫 
 
