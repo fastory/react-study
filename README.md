@@ -15,3 +15,8 @@ react系列计划,
 第四章: redux+redux-saga
 
 第五章：使用typeScript
+
+第六章: 函数组件以及使用注解优化代码，以及使用HOC
+
+第七章: 使用服务器端渲染
+
