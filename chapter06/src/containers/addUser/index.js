@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import AddUserForm from "../../components/Forms";
-import { connect } from 'react-redux'
-import { addUser} from '../../actions/user'
-import { message } from 'antd';
+import { connect } from "react-redux";
+import { addUser } from "../../actions/user";
+import { message } from "antd";
 
-class AddUser extends Component {
-  addUserAction = (values) => {
+@connect(
+  state => ({
+    users: state.users
+  }),
+  {
+    addUser
+  }
+)
+export default class extends Component {
+  addUserAction = values => {
     const userLists = this.props.users ? this.props.users : [];
     let lastKey = 0;
     if (userLists.length != 0) {
@@ -15,10 +23,10 @@ class AddUser extends Component {
       key: lastKey + 1,
       age: Number.parseInt(values.age),
       address: values.address.join("").toString()
-    })
+    });
     this.props.addUser(obj);
-    message.success('提交成功');
-  }
+    message.success("提交成功");
+  };
   render() {
     return (
       <div>
@@ -27,17 +35,12 @@ class AddUser extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  users: state.users
-})
+// const mapStateToProps = state => ({
+//   users: state.users
+// })
 
-const mapDispatchToProps = dispatch => ({
-  addUser: record => {
-    dispatch(addUser(record));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddUser)
+// const mapDispatchToProps = dispatch => ({
+//   addUser: record => {
+//     dispatch(addUser(record));
+//   }
+// });

@@ -74,7 +74,7 @@ import { addUser , delUser , initUser} from '../../actions/user'
         const listData = this.props.users;
         return (
             <div>
-                <AddBtn addUser={this.addUserModel} />
+                <AddBtn></AddBtn>
                 <AddUserModel visible={this.state.visible} closeModel={this.closeModel} addUserAction={this.addUserAction} />
                 <Lists listData={listData} deleteUser={this.deleteUser} />
             </div>
