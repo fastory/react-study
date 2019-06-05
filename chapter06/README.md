@@ -9,4 +9,4 @@ webpack4+react+scss+antd+react-router+react-redux+react-saga
 
 ##### 知识点
 
-
+- [函数组件和类组件](https://zhuanlan.zhihu.com/p/59558396)

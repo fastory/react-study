@@ -41,7 +41,7 @@ import { addUser , delUser , initUser} from '../../actions/user'
     deleteUser = (record) => {
         this.props.delUser(record.key);
     }
-    addUserModel = () => {
+    addUserModelHide = () => {
         this.setState({
             visible: true
         })
@@ -73,12 +73,16 @@ import { addUser , delUser , initUser} from '../../actions/user'
     render() {
         const listData = this.props.users;
         return (
-            <div>
-                <AddBtn></AddBtn>
-                <AddUserModel visible={this.state.visible} closeModel={this.closeModel} addUserAction={this.addUserAction} />
-                <Lists listData={listData} deleteUser={this.deleteUser} />
-            </div>
-        )
+          <div>
+            <AddBtn addUser={this.addUserModelHide} />
+            <AddUserModel
+              visible={this.state.visible}
+              closeModel={this.closeModel}
+              addUserAction={this.addUserAction}
+            />
+            <Lists listData={listData} deleteUser={this.deleteUser} />
+          </div>
+        );
     }
 }
 
