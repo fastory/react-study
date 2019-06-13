@@ -18,7 +18,6 @@ export default class extends Component {
     // input.value = ''
   };
   render() {
-    const _this = this;
     const arr = [
       { text: "显示全部", filter: VisibilityFilters.SHOW_ALL },
       { text: "显示已完成", filter: VisibilityFilters.SHOW_COMPLETED },

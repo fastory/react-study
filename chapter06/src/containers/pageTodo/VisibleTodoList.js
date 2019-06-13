@@ -4,7 +4,7 @@ import { toggleTodo } from '../../actions'
 import TodoList from '../../components/Todo/TodoList'
 import { VisibilityFilters } from '../../actions'
 
-const getVisibleTodos = (todos, filter) => {
+export const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return todos
@@ -16,12 +16,16 @@ const getVisibleTodos = (todos, filter) => {
       throw new Error('Unknown filter: ' + filter)
   }
 }
-
-class VisibleList extends Component {
-  complete = id =>{
-    console.log(id)
-    this.props.completeId(id);
-  }
+@connect(
+  state => ({
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }),
+  { toggleTodo }
+)
+export default class  extends Component {
+  complete = id => {
+    this.props.toggleTodo(id);
+  };
   render() {
     const todos = this.props.todos;
     return (
@@ -30,19 +34,5 @@ class VisibleList extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
-
-const mapDispatchToProps = dispatch => ({
-  completeId: id => {
-    dispatch(toggleTodo(id));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(VisibleList)
 
 

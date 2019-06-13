@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { addTodo } from '../../actions'
 import Todo from "../../components/Todo";
 
-class AddTodo extends Component {
+@connect(
+    addTodo
+)
+export default class extends Component {
   handleSubmit = values => {
     this.props.dispatch(addTodo(values.name));
     // input.value = ''
@@ -17,4 +20,3 @@ class AddTodo extends Component {
   }
 }
 
-export default connect()(AddTodo)

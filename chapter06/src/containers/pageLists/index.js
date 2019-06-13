@@ -5,7 +5,15 @@ import AddUserModel from '../../components/Lists/addUserModel';
 import { connect } from 'react-redux'
 import { addUser , delUser , initUser} from '../../actions/user'
 
- class PageLists extends Component {
+
+@connect(state => ({
+    users: state.users
+  }),{
+    addUser,
+    delUser,
+    initUser
+})
+export default class extends Component {
 
     componentDidMount =()=>{
         const listData = [{
@@ -85,24 +93,3 @@ import { addUser , delUser , initUser} from '../../actions/user'
         );
     }
 }
-
-const mapStateToProps = state => ({
-    users: state.users
-})
-
-const mapDispatchToProps = dispatch => ({
-    addUser: record => {
-        dispatch(addUser(record));
-    },
-    delUser: key => {
-        dispatch(delUser(key));
-    },
-    initUser: userList => {
-        dispatch(initUser(userList));
-    }
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PageLists)
