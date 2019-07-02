@@ -35,12 +35,3 @@ export default class extends Component {
     );
   }
 }
-// const mapStateToProps = state => ({
-//   users: state.users
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//   addUser: record => {
-//     dispatch(addUser(record));
-//   }
-// });
