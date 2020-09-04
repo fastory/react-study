@@ -20,7 +20,7 @@
     "bizcharts": "^3.4.3",
     "events": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-hot-loader": "^4.6.5",
